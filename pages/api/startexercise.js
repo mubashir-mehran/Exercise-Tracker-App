@@ -9,15 +9,15 @@ const JWT_SECRET = "Mehranisagudb$oy";
 
 const handler = async (req, res) => {
     const token = req.cookies.token;
-    console.log('token found',token);
+    // console.log('token found',token);
     const decode = verify(token, JWT_SECRET)
-    console.log("dsd");
-    console.log(decode);
+    // console.log("dsd");
+    // console.log(decode);
     // const a = data.user.id;
     // console.log(a)
 
     if (req.method == 'POST') {
-        console.log("Hello")
+        // console.log("Hello")
       try{
         let e = new Exercise({
             name: req.body.name,
@@ -28,10 +28,10 @@ const handler = async (req, res) => {
         })
         
        const exerciseCreated =  await e.save()
-       console.log(exerciseCreated)
+    //    console.log(exerciseCreated)
        const userUpdated = await Users.findByIdAndUpdate({_id:decode.user.id},  { $push: { exercises: exerciseCreated._id }},{ runValidators: false})
         // await Users.findById(decode.user.id)
-       console.log(userUpdated)
+    //    console.log(userUpdated)
         res.status(200).json({ success: "Success" })
     }
     catch(err){

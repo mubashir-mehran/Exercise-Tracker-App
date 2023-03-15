@@ -7,6 +7,7 @@ const { validationResult } = require('express-validator');
 import Exercises from '@/models/Exercises'
 
 const JWT_SECRET = "Mehranisagudb$oy";
+
 const handler = async (req, res) => {
 let success = false;
     const errors = validationResult(req);

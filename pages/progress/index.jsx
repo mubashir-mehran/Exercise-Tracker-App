@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from '@/styles/Progess.module.scss'
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { motion } from "framer-motion"
 import mongoose from "mongoose";
 import {verify} from 'jsonwebtoken'
 import Users from "@/models/Users";
+import axios from "axios";
 
 const JWT_SECRET = "Mehranisagudb$oy";
 
-export default function Progress({activities}) {
-  console.log(activities)
-    const transition = {type: 'spring', duration : 4}
+export default function Progress({myactivities,token}) {
+  // console.log(myactivities)
+  const [activities,Setactivities] = useState(myactivities)
+  const transition = {type: 'spring', duration : 4}
+
+    const handleDelete = async(id)=>{
+      const res = await axios.delete(`http://localhost:3000/api/getexercises`,{data:{id},headers:{Authorization:token}},)
+      // console.log(res)
+      const res1 = await axios.get(`http://localhost:3000/api/getexercises`,{headers:{Authorization:token}})
+      Setactivities(res1.data.exercise)
+    }
   return (
     <div>
           <div className={styles.wrapper5}>
@@ -32,8 +41,11 @@ export default function Progress({activities}) {
           <h3 className={styles.h3}>{item.description}</h3>
           <h3 className={styles.h3}>{item.duration}min</h3>
           <h3 className={styles.h3}>{item.since}</h3>
+          <button onClick={()=>handleDelete(item._id)}>Delete</button>
         </div>
+        
          })}
+        
       </main>
     </div>
   );
@@ -43,13 +55,13 @@ export async function getServerSideProps(context) {
   const {req,res} = context
   const token = req.cookies.token;
     const decode = verify(token, JWT_SECRET)
-    console.log(decode.user.id);
+    // console.log(decode.user.id);
 
   if(!mongoose.connections[0].readyState) {
     await mongoose.connect('mongodb://127.0.0.1:27017/tracker')
   }
     let activities = await Users.findById(decode.user.id).populate("exercises")
   return {
-    props: { activities: JSON.parse(JSON.stringify(activities.exercises)) }, // will be passed to the page component as props
+    props: { myactivities: JSON.parse(JSON.stringify(activities.exercises)),token}, // will be passed to the page component as props
   }
   }

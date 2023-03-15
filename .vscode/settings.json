@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "authtoken",
+        "Exercies",
         "fetchuser",
         "fname",
         "handlelogout",
@@ -9,8 +10,10 @@
         "jwtsecret",
         "mainpage",
         "Mehranisagudb",
+        "myactivities",
         "passwordcompare",
         "Progess",
+        "Setactivities",
         "signin",
         "Signup",
         "startexercise",

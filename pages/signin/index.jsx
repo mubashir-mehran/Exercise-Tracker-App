@@ -142,7 +142,7 @@ function Signin() {
             type="submit"
             value={"SIGN IN"}
           />
-          <p className={styles.login}>Don't have an account? <Link href='/signup'>Sign-up</Link> </p>
+          <p className={styles.login}>Dont have an account? <Link href='/signup'>Sign-up</Link> </p>
           </span>
         </form>
       </div>

@@ -3,14 +3,16 @@ import Users from '../../models/Users'
 import  Exercise from '../../models/Exercises'
 import connectDb from '@/middleware/mongoose'
 import './signin'
-import {verify} from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 const JWT_SECRET = "Mehranisagudb$oy";
 
 const handler = async (req, res) => {
-    const token = req.cookies.token;
+    const token = req.cookies.token || req.headers.authorization;
     // console.log('token found',token);
-    const decode = verify(token, JWT_SECRET)
+    
+    const decode = jwt.verify(token, JWT_SECRET)
+    
     // console.log("dsd");
     // console.log(decode);
     // const a = data.user.id;

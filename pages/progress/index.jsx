@@ -58,7 +58,7 @@ export async function getServerSideProps(context) {
     // console.log(decode.user.id);
 
   if(!mongoose.connections[0].readyState) {
-    await mongoose.connect('mongodb://127.0.0.1:27017/tracker')
+    await mongoose.connect('mongodb+srv://mehran:memon786@cluster0.sqiwtqn.mongodb.net/tracker?retryWrites=true&w=majority')
   }
     let activities = await Users.findById(decode.user.id).populate("exercises")
   return {

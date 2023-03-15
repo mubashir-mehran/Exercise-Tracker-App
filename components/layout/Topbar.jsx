@@ -7,7 +7,7 @@ function Topbar({ menuOpen, setMenuOpen }) {
         <div className={`${styles.topbar}  ${menuOpen ? styles.active : ''}`} >
           <div className={styles.wrapper}>
             <div className={styles.left}>
-              <a href="#intro" className={styles.logo}>
+              <a className={styles.logo}>
                 The Fit Club..!
               </a>
             </div>

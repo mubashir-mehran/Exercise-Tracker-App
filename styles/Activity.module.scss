@@ -1,0 +1,118 @@
+@import "../styles/global.scss"; 
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    
+    @include mobile {
+      padding: 7%;
+      background-color: white;
+    }
+  }
+  .activity {
+    display: flex;
+    flex-direction: column;
+    width: 35rem;
+    height: 35rem;
+    gap: 8px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 2px 2px 3px #15023a;
+
+    @include mobile {
+      height: 36rem;
+      margin-top: 20px;
+      
+    }
+  }
+  .heading4 {
+    text-align: center;
+    color: #15023a;
+    font-weight: bolder;
+    font-size: 25px;
+    font-family: revert-layer;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+  }
+  .label {
+    color: #15023a;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+  }
+  .input{
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px lightgrey;
+  }
+  .select {
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px lightgrey;
+  }
+  .start {
+    border: 1px solid gray;
+    background: #15023a;
+    color: white;
+    width: 6rem;
+    padding: 10px;
+    border: 1px solid#15023a;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: inherit;
+    letter-spacing: 2px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .wrapper1 {
+    margin-right: 10rem;
+    background-color: #15023a;
+    border-radius: 4rem;
+    width: 40%;
+    padding: 1px 2px;
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+
+    @include mobile {
+      width: 70%;
+      padding: 0px 1px;
+      margin-left: -1rem;
+      transform: scale(0.9);
+
+    }
+    h2 {
+      z-index: 2;
+      font-weight: 700;
+    }
+    div {
+      position: absolute;
+      background-color: orange;
+      width: 4.5rem;
+      height: 60%;
+      left: 8px;
+      border-radius: 3rem;
+      z-index: 1;
+    }
+  }
+  .option{
+          font-size: 20px;
+          color: #15023a;
+          font-weight: bold;
+          text-transform: capitalize;
+  }

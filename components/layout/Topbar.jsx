@@ -1,9 +1,14 @@
 import styles from '@/styles/Topbar.module.scss'
 import { getCookie } from 'cookies-next';
+import { useEffect, useState } from 'react';
 
 function Topbar({ menuOpen, setMenuOpen }) {
-  const token = getCookie('token')
-    return (
+  const [token,setToken] = useState(null) 
+  useEffect(()=>{
+   setToken(getCookie('token'))
+
+  },[])
+  return (
         <div className={`${styles.topbar}  ${menuOpen ? styles.active : ''}`} >
           <div className={styles.wrapper}>
             <div className={styles.left}>

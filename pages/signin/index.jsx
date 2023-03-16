@@ -50,7 +50,7 @@ function Signin() {
      theme: "light",
      });
      setTimeout(() => {
-       router.push(`${url}/mainpage`)
+       window.location.replace(`${url}/mainpage`)
      }, 1000);
    }
    else{

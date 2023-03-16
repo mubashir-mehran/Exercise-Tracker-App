@@ -7,6 +7,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
 
   const handlelogout = ()=>{
     deleteCookie('token', { maxAge: 0})
+    window.location.replace("/signin")
   }
     return (
       <div className={`${menu.menu}   ${menuOpen ? menu.active:''}`}>
@@ -27,7 +28,7 @@ export default function Menu({ menuOpen, setMenuOpen }) {
             <Link href="/signin">SignIn</Link>
           </li>
           <li onClick={()=> setMenuOpen(false)}>
-            <Link onClick={handlelogout} href="/signin">Sign Out</Link>
+            <a onClick={handlelogout}>Sign Out</a>
           </li>
         </ul>
       </div>

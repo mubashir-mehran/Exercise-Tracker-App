@@ -41,7 +41,7 @@ export default function Progress({myactivities,token}) {
           <h3 className={styles.h3}>{item.description}</h3>
           <h3 className={styles.h3}>{item.duration}min</h3>
           <h3 className={styles.h3}>{item.since}</h3>
-          <button onClick={()=>handleDelete(item._id)}>Delete</button>
+          <button className={styles.btn} onClick={()=>handleDelete(item._id)}>DELETE</button>
         </div>
         
          })}

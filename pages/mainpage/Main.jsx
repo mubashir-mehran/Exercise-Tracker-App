@@ -17,7 +17,7 @@ export default function Intro() {
       <div className={styles.right}>
         <div className={styles.wrapper}>
           <motion.div
-          initial={{left: mobile? "240px": "268px"}}
+          initial={{ left: mobile? "240px": "268px" }}
           whileInView={{left: '8px'}}
           transition ={{...transition, type: 'tween'}}
           >

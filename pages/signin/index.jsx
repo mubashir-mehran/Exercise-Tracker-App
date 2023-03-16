@@ -8,6 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
 import { setCookie } from 'cookies-next';
+import {url} from '../../src/utils/Url'
 
 
 function Signin() {
@@ -21,7 +22,7 @@ function Signin() {
    e.preventDefault();
    const data = {  email, password };
    
-   let res = await fetch("/api/signin", {
+   let res = await fetch(`${url}/api/signin`, {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
@@ -47,7 +48,7 @@ function Signin() {
      theme: "light",
      });
      setTimeout(() => {
-       router.push('http://localhost:3000/mainpage')
+       router.push(`${url}/mainpage`)
      }, 1000);
    }
    else{

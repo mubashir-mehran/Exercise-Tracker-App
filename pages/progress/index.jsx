@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import {verify} from 'jsonwebtoken'
 import Users from "@/models/Users";
 import axios from "axios";
+import {url} from '../../src/utils/Url'
 
 const JWT_SECRET = "Mehranisagudb$oy";
 
@@ -15,9 +16,9 @@ export default function Progress({myactivities,token}) {
   const transition = {type: 'spring', duration : 4}
 
     const handleDelete = async(id)=>{
-      const res = await axios.delete(`http://localhost:3000/api/getexercises`,{data:{id},headers:{Authorization:token}},)
+      const res = await axios.delete(`${url}/api/getexercises`,{data:{id},headers:{Authorization:token}},)
       // console.log(res)
-      const res1 = await axios.get(`http://localhost:3000/api/getexercises`,{headers:{Authorization:token}})
+      const res1 = await axios.get(`${url}/api/getexercises`,{headers:{Authorization:token}})
       Setactivities(res1.data.exercise)
     }
   return (

@@ -12,7 +12,7 @@ function Topbar({ menuOpen, setMenuOpen }) {
               </a>
             </div>
             <div className={styles.right}>
-              <div className={styles.humburger} style={{display: !token? 'none':''}}  onClick={() => setMenuOpen(!menuOpen)}>
+              <div className={styles.humburger}  onClick={() => setMenuOpen(!menuOpen)}>
                 <span className={styles.line1}></span>
                 <span className={styles.line2}></span>
                 <span className={styles.line3}></span>

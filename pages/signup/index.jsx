@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router'
+import {url} from '../../src/utils/Url'
 
 function Signup() {
   const router = useRouter()
@@ -17,7 +18,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = { name, email, password };
-    let res = await fetch("/api/signup", {
+    let res = await fetch(`${url}/api/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +41,7 @@ function Signup() {
       theme: "light",
       });
       setTimeout(() => {
-        router.push('http://localhost:3000/signin')
+        router.push(`${url}/signin`)
       }, 1000);
   };
 

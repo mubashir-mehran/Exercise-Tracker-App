@@ -21,12 +21,12 @@ export default function Menu({ menuOpen, setMenuOpen }) {
           <li onClick={()=> setMenuOpen(false)}>
             <Link href="/progress">Exercise Progress</Link>
           </li>
-          <li onClick={()=> setMenuOpen(false)}>
+          {/* <li onClick={()=> setMenuOpen(false)}>
             <Link href="/signup">SignUp</Link>
           </li>
           <li onClick={()=> setMenuOpen(false)}>
             <Link href="/signin">SignIn</Link>
-          </li>
+          </li> */}
           <li onClick={()=> setMenuOpen(false)}>
             <a onClick={handlelogout}>Sign Out</a>
           </li>

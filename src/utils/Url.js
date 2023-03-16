@@ -1,1 +1,1 @@
-export const url = process.env.NODE_ENV === 'development' ? 'http://localhost:3000':'https://exercise-tracker-app-97sx.vercel.app'
+export const url = process.env.NODE_ENV === 'development' ? 'http://localhost:3000':'https://exercise-tracker-app-five.vercel.app'

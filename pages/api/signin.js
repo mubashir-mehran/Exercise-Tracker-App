@@ -12,7 +12,7 @@ const handler = async (req, res) => {
 let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        res.status(400).send({ errors: errors.array() });
     }
     const { email, password } = req.body;
     try {
@@ -20,12 +20,12 @@ let success = false;
         console.log('user found',user);
         if (!user) {
             success = false;
-            return res.status(400).json({ error: 'please try to login with correct credentials' });
+            res.status(400).send({ error: 'please try to login with correct credentials' });
         }
         const passwordcompare = await bcrypt.compare(password, user.password);
         if (!passwordcompare) {
             success = false;
-            return res.status(400).json({success, error: 'please try to login with correct credentials' });
+            res.status(400).send({success, error: 'please try to login with correct credentials' });
         }
         const data = {
             user: {
@@ -36,11 +36,11 @@ let success = false;
         }
         const authtoken = jwt.sign(data, JWT_SECRET);
         success = true;
-        res.json({success, authtoken, exercises: user.exercises })
+        res.send({success, authtoken, exercises: user.exercises })
 
     } catch (error) {
         console.error(error.message);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send({err:'Internal Server Error'});
     }
 }
 export default connectDb(handler);

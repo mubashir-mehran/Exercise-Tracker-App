@@ -19,7 +19,7 @@ export default function Exercises() {
             <Image className={exercise.img} src="/running.jpg" alt="" width= {350} height={250}/>
             <h3>Running</h3>
           </div> </Link> 
-          <Link href='/activity'>     <div className={exercise.item}>
+          <Link href='/activity'><div className={exercise.item}>
             <Image className={exercise.img} src="/cycling.jpg" alt="" width= {350} height={250} />
             <h3>Cycling</h3>
           </div> </Link>

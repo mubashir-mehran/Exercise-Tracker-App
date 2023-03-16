@@ -7,7 +7,7 @@ const connectDb = handler => async (req, res) => {
     }
     else if (mongoose.connect('mongodb+srv://mehran:memon786@cluster0.sqiwtqn.mongodb.net/tracker?retryWrites=true&w=majority')) {
         console.log("Database connected");
-        res.send()
+        
         return handler(req, res);
     } else {
         console.log("Data base failed to connect")

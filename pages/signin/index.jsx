@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { motion } from "framer-motion"
 import LoginIcon from '@mui/icons-material/Login';
@@ -25,12 +26,13 @@ function Signin() {
    let res = await fetch(`${url}/api/signin`, {
      method: "POST",
      headers: {
-       "Content-Type": "application/json",
+       "Content-Type": "application/json"
      },
      body: JSON.stringify(data),
    });
+  //  console.log(res.body())
    let response = await res.json();
-   console.log(response);
+   console.log('res',res);
    setEmail("");
    setPassword("");
    if(response.success){

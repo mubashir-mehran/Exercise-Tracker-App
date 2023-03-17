@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import Mainpage from '@/pages/mainpage'
-import Signin from '@/pages/signin'
+import Signup from '@/pages/signup'
 export default function Home() {
 
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
       </Head>
       {/* <Mainpage/> */}
-      <Signin/>
+      <Signup/>
       
     </>
   )

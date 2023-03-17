@@ -10,5 +10,5 @@ const ExerciseSchema = new mongoose.Schema({
 }, );
 
 
-// mongoose.models = {}
-export default mongoose.models.Exercises || mongoose.model("Exercises", ExerciseSchema);
+mongoose.models = {} 
+module.exports =   mongoose.model("Exercises", ExerciseSchema);

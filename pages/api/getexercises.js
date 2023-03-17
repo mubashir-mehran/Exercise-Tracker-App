@@ -15,12 +15,11 @@ const handler = async (req, res) => {
     switch (method){
         case 'GET':
             let exercise = await Users.findById(decode.user.id).populate("exercises")
-            res.status(200).json({ exercise: exercise.exercises })
+           return res.json({ exercise: exercise.exercises })
             break;
             case 'DELETE':
             let activities = await Exercises.findByIdAndDelete(req.body.id)
-            
-            res.status(200).json(activities);
+            return res.json(activities);
             break;
     }
 }

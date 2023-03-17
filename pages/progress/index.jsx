@@ -7,6 +7,7 @@ import {verify} from 'jsonwebtoken'
 import Users from "@/models/Users";
 import axios from "axios";
 import {url} from '../../src/utils/Url'
+import getexercises from '../api/getexercises'
 
 const JWT_SECRET = "Mehranisagudb$oy";
 
@@ -17,7 +18,7 @@ export default function Progress({myactivities,token}) {
 
     const handleDelete = async(id)=>{
       const res = await axios.delete(`${url}/api/getexercises`,{data:{id},headers:{Authorization:token}},)
-      // console.log(res)
+      console.log(res)
       const res1 = await axios.get(`${url}/api/getexercises`,{headers:{Authorization:token}})
       Setactivities(res1.data.exercise)
     }
@@ -54,9 +55,10 @@ export default function Progress({myactivities,token}) {
 
 export async function getServerSideProps(context) {
   const {req,res} = context
-  const token = req.cookies.token;
+  const token = req.cookies.token || req.headers.authorization;
     const decode = verify(token, JWT_SECRET)
-    // console.log(decode.user.id);
+    console.log(decode.user.id);
+
 
   if(!mongoose.connections[0].readyState) {
     await mongoose.connect('mongodb+srv://mehran:memon786@cluster0.sqiwtqn.mongodb.net/tracker?retryWrites=true&w=majority')

@@ -1,7 +1,7 @@
 import menu from '@/styles/Menu.module.scss'
 import Link from 'next/link';
 import { deleteCookie } from 'cookies-next';
-
+import {url} from '../../src/utils/Url'
 
 export default function Menu({ menuOpen, setMenuOpen }) {
 
@@ -13,13 +13,13 @@ export default function Menu({ menuOpen, setMenuOpen }) {
       <div className={`${menu.menu}   ${menuOpen ? menu.active:''}`}>
         <ul>
           <li onClick={()=> setMenuOpen(false)}>
-            <Link href="/mainpage">Home</Link>
+            <Link href={`${url}/mainpage`}>Home</Link>
           </li>
           <li onClick={()=> setMenuOpen(false)}>
-            <Link href="/activity">Start Exercise</Link>
+            <Link href={`${url}/activity`}>Start Exercise</Link>
           </li>
           <li onClick={()=> setMenuOpen(false)}>
-            <Link href="/progress">Exercise Progress</Link>
+            <Link href={`${url}/progress`}>Exercise Progress</Link>
           </li>
           {/* <li onClick={()=> setMenuOpen(false)}>
             <Link href="/signup">SignUp</Link>

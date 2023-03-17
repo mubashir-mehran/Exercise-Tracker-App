@@ -7,6 +7,7 @@ import { useCookies } from "react-cookie";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
+import {url} from '../../src/utils/Url'
 
 function Activity() {
   const router = useRouter()
@@ -32,7 +33,7 @@ function Activity() {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const exercise = { name, description, activity, duration:number};
-    console.log(exercise)
+    // console.log(exercise)
     let res = await fetch("/api/startexercise", {
       method: "POST",
       headers: {
@@ -60,7 +61,7 @@ function Activity() {
       theme: "light",
       });
       setTimeout(() => {
-        router.push('http://localhost:3000/progress')
+        router.push(`${url}/progress`)
       }, 500);
 
   }
